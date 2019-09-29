@@ -36,4 +36,23 @@ public class EncerradorDeLeilaoTest {
 		assertTrue(leilao2.isEncerrado());
 		assertEquals(2, encerrador.getQuantidadeDeEncerrados());
 	}
+	
+	
+    @Test
+    public void deveAtualizarLeiloesEncerrados() {
+
+        Calendar antiga = Calendar.getInstance();
+        antiga.set(1999, 1, 20);
+
+        Leilao leilao1 = new CriadorDeLeilao().para("TV de plasma")
+            .naData(antiga).constroi();
+
+        LeilaoDao daoFalso = mock(LeilaoDao.class);
+        when(daoFalso.correntes()).thenReturn(Arrays.asList(leilao1));
+
+        EncerradorDeLeilao encerrador = new EncerradorDeLeilao(daoFalso);
+        encerrador.encerra();
+
+        verify(daoFalso, times(1)).salva(leilao1);
+    }
 }
