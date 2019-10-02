@@ -4,16 +4,16 @@ import java.util.Calendar;
 import java.util.List;
 
 import br.com.caelum.leilao.dominio.Leilao;
-import br.com.caelum.leilao.infra.dao.LeilaoDao;
+import br.com.caelum.leilao.infra.dao.RepositorioDeLeiloes;
 import br.com.caelum.leilao.infra.email.Carteiro;
 
 public class EncerradorDeLeilao {
 
 	private int encerrados;
-	private final LeilaoDao dao;
+	private final RepositorioDeLeiloes dao;
 	private final Carteiro carteiro;
 
-	public EncerradorDeLeilao(LeilaoDao dao, Carteiro carteiro) {
+	public EncerradorDeLeilao(RepositorioDeLeiloes dao, Carteiro carteiro) {
 		this.dao = dao;
 		// guardamos o carteiro como atributo da classe
 		this.carteiro = carteiro;

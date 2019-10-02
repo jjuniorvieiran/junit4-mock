@@ -15,11 +15,11 @@ import br.com.caelum.leilao.dominio.Lance;
 import br.com.caelum.leilao.dominio.Leilao;
 import br.com.caelum.leilao.dominio.Usuario;
 
-public class LeilaoDao {
+public class RepositorioDeLeiloes {
 
 	private Connection conexao;
 
-	public LeilaoDao() {
+	public RepositorioDeLeiloes() {
 		try {
 			this.conexao = DriverManager.getConnection(
 					"jdbc:mysql://localhost/mocks", "root", "");
